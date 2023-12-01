@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
-	  <head>
-		  <meta http-equiv="Refresh" content="1; url={{.}}" />
-      <title>Big Blue Button - Attendees limit reached</title>
-	  </head>
-	  <body>
-      <h1>The limit of attendees for this frontend was reached.</h1>
-      <p>You are not allowed to join this meeting because the limit of attendees has been reached for this frontend.</p>
-      <p>Please use your invitation link to retry later.</p>
-	  </body>
+<head>
+  <meta http-equiv="Refresh" content="1; url={{.}}" />
+  <title>Big Blue Button - Maximale Teilnehmer*innen-Anzahl erreicht</title>
+  <style>
+    body {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(243 244 246);
+    }
+
+    h1 {
+      color: rgb(245 121 0);
+    }
+
+    p {
+      color: rgb(31 41 55);
+      letter-spacing: 0.025em;
+      font-size: 1.125rem;
+    }
+
+    a {
+      color: rgb(0 59 117);
+    }
+  </style>
+</head>
+<body>
+  <h1>Die maximal mögliche Teilnehmer*innen-Anzahl für diesen Zugang wurde erreicht.</h1>
+  <p>Sie können nicht in dieses Meeting eintreten, weil die maximale mögliche Teilnehmer*innen-Anzahl des gebuchten
+    Produkts erreicht wurde.</p>
+  <p>Passende Produkte mit höherer Teilnehmer*innen-Anzahl finden Sie auf der <a href="https://collocall.de/de#preise"
+      target="_blank">ColloCall-Website<a></p>
+</body>
 </html>
