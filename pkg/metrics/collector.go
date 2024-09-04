@@ -190,24 +190,30 @@ func (c Collector) collectMeetingMetrics(
 		}
 	}
 
-	for fkey, count := range feMeetings {
-		ch <- prometheus.MustNewConstMetric(
-			frontendMeetingsDesc, prometheus.GaugeValue,
-			count, fkey,
-		)
-	}
-
-	for host, count := range beMeetings {
+	// Backends meetings metric
+	for _, host := range beHosts {
+		var count float64
+		count, _ = beMeetings[host]
 		ch <- prometheus.MustNewConstMetric(
 			backendMeetingsDesc, prometheus.GaugeValue,
 			count, host,
 		)
 	}
 
-	for fkey, count := range feAttendees {
+	for _, fkey := range feKeys {
+		// Frontend attendees metric
+		var attendeesCount float64
+		attendeesCount, _ = feAttendees[fkey]
 		ch <- prometheus.MustNewConstMetric(
 			frontendAttendeesDesc, prometheus.GaugeValue,
-			count, fkey,
+			attendeesCount, fkey,
+		)
+		// Frontend meetings metric
+		var meetingsCount float64
+		meetingsCount, _ = feMeetings[fkey]
+		ch <- prometheus.MustNewConstMetric(
+			frontendMeetingsDesc, prometheus.GaugeValue,
+			meetingsCount, fkey,
 		)
 	}
 
